@@ -7,6 +7,7 @@ const db = require('knex')(config)
 
 function getLeaderboards() {
     return db('leaderboards')
+        .orderBy('rating', 'ASC')
         .then(data => {
             console.log(data)
         })
