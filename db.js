@@ -29,7 +29,3 @@ function insertPlayer(id, username, winRatio, totalWins, kdr, totalKills, rating
             returnValue
         })
 }
-
-insertPlayer(3821094328190, 'tayboi', 0.5, 119, 0.6, 10000, 0.2)
-
-getLeaderboards()
