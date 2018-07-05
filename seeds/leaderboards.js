@@ -1,13 +1,11 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('leaderboards').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('leaderboards').insert([
+        {id: 1, username: 'solz t', win_ratio: 0, total_wins: 0, kdr: 1, total_kills: 20, rating: 0.05},
       ]);
     });
 };
