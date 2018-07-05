@@ -1,8 +1,1 @@
-module.exports = {
-  getFruits
-}
-
-function getFruits () {
-  const fruits = ['banana', 'apple', 'feijoa']
-  return Promise.resolve(fruits)
-}
+// File for writing functions related to db queries; returning / doing what we want:
