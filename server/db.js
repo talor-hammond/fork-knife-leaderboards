@@ -5,12 +5,11 @@ const environment = 'development'
 const config = require('../knexfile')[environment]
 const db = require('knex')(config)
 
+console.log(config)
+
 function getLeaderboards() {
     return db('leaderboards')
         .orderBy('rating', 'ASC')
-        .then(data => {
-            console.log(data)
-        })
 }
 
 function insertPlayer(id, username, winRatio, totalWins, kdr, totalKills, rating) {

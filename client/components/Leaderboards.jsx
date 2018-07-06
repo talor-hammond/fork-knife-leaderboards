@@ -1,15 +1,11 @@
 import React from 'react'
-// import db from '../../db'
+import db from '../../server/db'
 
 class Leaderboards extends React.Component {
     // REQUIRED:
     constructor(props) {
         super(props)
 
-        // Starting point:
-        // this.state = {
-        //     players: []
-        // }
     }
 
 
@@ -29,11 +25,24 @@ class Leaderboards extends React.Component {
                             <th>Wins</th>
                         </tr>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Jessie</td>
-                            <td>102,345</td>
-                        </tr>
+                        {
+                            db.getLeaderboards()
+                                .then(players => {
+                                    players.map((player, i) => {
+                                        <tr>
+                                            <td>{i + 1}</td>
+                                            <td>{player.username}</td>
+                                            <td>{player.rating}</td>
+                                            <td>{player.kdr}</td>
+                                            <td>{player.total_kills}</td>
+                                            <td>{player.win_ratio}</td>
+                                            <td>{player.total_wins}</td>
+                                        </tr>
+                                    })
+                                })
+                        }
+
+
                     </tbody>
                 </table>
             </React.Fragment>

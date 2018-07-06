@@ -7,8 +7,11 @@ const trnKey = 'TRN-Api-Key'
 const trnKeyValue = '4b44201c-db0b-4bc7-b06f-5c6753877008'
 
 const server = express()
+const databaseRoute = require('./routes/database.js')
 
 server.use(express.static(path.join(__dirname, 'public')))
+
+server.use('/api/v1', databaseRoute)
 
 server.get('/v1/profile/:platform/:name', (req,res) => {
     const {platform, name} = req.params
