@@ -1,23 +1,30 @@
 import React from 'react'
-
-import { getFruits } from '../apiClient'
-
+ 
+// importing superagent
+// import request from 'superagent'
+ 
+// import { getPlayersData } from '../apiClient'
+ 
+// Components
+import Players from './Players'
+// import Leaderboards from './Leaderboards'
+ 
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      playerOne: {},
+      playerTwo: {}
+    }
   }
-
-  // componentDidMount () {
-
-  // }
 
   render() {
     return (
-
-      <React.Fragment>
-        <h1>Hello people</h1>
-      </React.Fragment>
-
+      <div>
+        <Players />
+        {/* <Leaderboards /> */}
+      </div>
+ 
     )
   }
 
@@ -40,5 +47,5 @@ class App extends React.Component {
     })
   }
 }
-
+ 
 export default App
