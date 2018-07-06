@@ -19545,44 +19545,23 @@ var App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-    _this.state = {
-      fruits: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
   }
 
-  _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
+  // componentDidMount () {
 
-      (0, _apiClient.getFruits)().then(function (fruits) {
-        _this2.setState({ fruits: fruits });
-      });
-    }
-  }, {
+  // }
+
+  _createClass(App, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'app' },
+        _react2.default.Fragment,
+        null,
         _react2.default.createElement(
           'h1',
           null,
-          'Fullstack Boilerplate'
-        ),
-        _react2.default.createElement(
-          'ul',
-          null,
-          this.state.fruits.map(function (fruit) {
-            return _react2.default.createElement(
-              'li',
-              { key: fruit },
-              fruit
-            );
-          })
+          'Hello people'
         )
       );
     }
@@ -19600,24 +19579,11 @@ exports.default = App;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getFruits = getFruits;
-
 var _superagent = __webpack_require__(28);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var rootUrl = '/api/v1';
-
-function getFruits() {
-  return _superagent2.default.get(rootUrl + '/fruits').then(function (res) {
-    return res.body.fruits;
-  });
-}
 
 /***/ }),
 /* 28 */
