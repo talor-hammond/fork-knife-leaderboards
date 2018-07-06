@@ -21,8 +21,8 @@ router.post('/', (req, res) => {
   console.log('Post, req.body: ', player)
   
   db.insertPlayer(player)
-    .then(() => {
-      res.send('Hi')
+    .then(res => {
+      console.log(res)
     })
 
 })

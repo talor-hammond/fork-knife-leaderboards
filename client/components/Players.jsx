@@ -32,13 +32,10 @@ class Players extends React.Component {
             .then(returns => {
                 const [playerOne, playerTwo] = returns
 
-                // inserting one player:
+                // inserting player:
                 insertPlayer(playerOne)
-                    .then((res) => {
-                        console.log(res)
-                        this.props.refreshLeaderboards()
-                    })
-
+                insertPlayer(playerTwo)
+                
                 this.setState({
                     playerOne,
                     playerTwo,

@@ -20781,13 +20781,11 @@ var Players = function (_React$Component) {
                     playerOne = _returns[0],
                     playerTwo = _returns[1];
 
-                // inserting one player:
+                // inserting player:
 
 
-                (0, _apiClient.insertPlayer)(playerOne).then(function (res) {
-                    console.log(res);
-                    _this2.props.refreshLeaderboards();
-                });
+                (0, _apiClient.insertPlayer)(playerOne);
+                (0, _apiClient.insertPlayer)(playerTwo);
 
                 _this2.setState({
                     playerOne: playerOne,
