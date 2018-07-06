@@ -20642,7 +20642,7 @@ var Home = function (_React$Component) {
     }, {
         key: 'handleClick',
         value: function handleClick() {
-            (0, _reactScrollToComponent2.default)(this.refs.appledude, {
+            (0, _reactScrollToComponent2.default)(this.refs.body, {
                 align: 'top',
                 duration: 1500
             });
@@ -20670,18 +20670,42 @@ var Home = function (_React$Component) {
                                 _react2.default.createElement(
                                     'h1',
                                     { className: 'title' },
-                                    'fortnite ',
+                                    'Fortnite ',
                                     _react2.default.createElement(
                                         'strong',
                                         null,
-                                        'fights'
+                                        'Fights'
                                     )
                                 ),
                                 _react2.default.createElement(
-                                    'h2',
-                                    { className: 'subtitle' },
-                                    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum aspernatur similique cum aperiam at, repellat incidunt enim necessitatibus ut beatae soluta, quidem dicta placeat commodi, maxime architecto alias quae officia.'
+                                    'p',
+                                    { className: 'description' },
+                                    'Fortnite is a ',
+                                    _react2.default.createElement(
+                                        'span',
+                                        { className: 'subdescription' },
+                                        'battle to be the best!'
+                                    ),
+                                    ' But what happens when you want to compare yourself to your best friend or enemy? Click',
+                                    _react2.default.createElement(
+                                        'span',
+                                        { className: 'subdescription' },
+                                        ' \'Compare players\''
+                                    ),
+                                    ' to see who comes out on top! ',
+                                    _react2.default.createElement('br', null),
+                                    _react2.default.createElement('br', null),
+                                    _react2.default.createElement(
+                                        'h3',
+                                        null,
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'subdescription' },
+                                            'What are you waiting for?'
+                                        )
+                                    )
                                 ),
+                                _react2.default.createElement('br', null),
                                 _react2.default.createElement(
                                     'button',
                                     { onClick: function onClick() {
@@ -20698,7 +20722,7 @@ var Home = function (_React$Component) {
                     { 'class': 'hero is-fullheight is-dark is-bold' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'container', ref: 'appledude' },
+                        { className: 'container', ref: 'body' },
                         _react2.default.createElement(_Players2.default, { refreshLeaderboards: this.refreshLeaderboards() }),
                         _react2.default.createElement('hr', null),
                         _react2.default.createElement(_Leaderboards2.default, { players: this.state.players })

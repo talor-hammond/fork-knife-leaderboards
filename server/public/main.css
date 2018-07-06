@@ -91,3 +91,11 @@ table {
       font-weight: bold;
       font-size: 40px;
   }
+
+  .description {
+      color: white;
+  }
+
+  .subdescription {
+      font-weight: bold;
+  }

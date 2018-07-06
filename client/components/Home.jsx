@@ -21,19 +21,19 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.refreshLeaderboards()
-    }   
+    }
 
     refreshLeaderboards() {
         getLeaderboards()
-        .then(players => {
-            this.setState({
-                players
+            .then(players => {
+                this.setState({
+                    players
+                })
             })
-        })
     }
 
     handleClick() {
-        scrollToComponent(this.refs.appledude, {
+        scrollToComponent(this.refs.body, {
             align: 'top',
             duration: 1500
         })
@@ -46,11 +46,12 @@ class Home extends React.Component {
                     <section className="section container">
                         <div className="columns landingColumns">
                             <div className="column is-5 landing">
-                                <h1 className="title">fortnite <strong>fights</strong>
+                                <h1 className="title">Fortnite <strong>Fights</strong>
                                 </h1>
-                                <h2 className="subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum aspernatur similique cum aperiam at,
-                                    repellat incidunt enim necessitatibus ut beatae soluta, quidem dicta placeat commodi, maxime architecto
-                        alias quae officia.</h2>
+                                <p className="description">Fortnite is a <span className="subdescription">battle to be the best!</span> But what happens when you want to compare yourself to your best friend or enemy? Click 
+                                <span className="subdescription"> 'Compare players'</span> to see who comes out on top! <br /><br /> 
+                                <h3><span className="subdescription">What are you waiting for?</span></h3></p>
+                                <br/>
                                 <button onClick={() => this.handleClick()} className="button is-danger">Compare players</button>
                             </div>
                         </div>
@@ -58,8 +59,8 @@ class Home extends React.Component {
                 </div>
 
                 <div class="hero is-fullheight is-dark is-bold">
-                    <div className="container" ref="appledude">
-                        <Players refreshLeaderboards={this.refreshLeaderboards()}/>
+                    <div className="container" ref="body">
+                        <Players refreshLeaderboards={this.refreshLeaderboards()} />
                         <hr />
                         <Leaderboards players={this.state.players} />
                     </div>
