@@ -39,8 +39,3 @@ function getPlayerData(name, platform) {
         })
 
 }
-
-getPlayerData('cheftay', 'ps4')
-    .then((data) => {
-        console.log(data)
-    })
