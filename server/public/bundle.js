@@ -19557,6 +19557,7 @@ var App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
+
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
@@ -19566,13 +19567,16 @@ var App = function (_React$Component) {
     return _this;
   }
 
+
   _createClass(App, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
+
         'div',
         null,
         _react2.default.createElement(_Players2.default, null)
+
       );
     }
   }]);
@@ -19601,9 +19605,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+
 var _apiClient = __webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
