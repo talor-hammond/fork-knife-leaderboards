@@ -66,95 +66,104 @@ class Players extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="columns">
+                <div className="mainPage">
 
-                    <div className="column is-4">
-                        <form>
-                            <div className="field">
-                                <label className="label">Epic Games Username</label>
-                                <div className="control">
-                                    <input id="playerOneName" className="input" type="text" />
-                                </div>
-                            </div>
-
-                            <div className="control">
-                                <label className="label">Platform</label>
-                                <div className="select">
-                                    <select id="playerOnePlatform">
-                                        <option value="psn">PS4</option>
-                                        <option value="xb1">Xbox One</option>
-                                        <option value="pc">PC</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            {this.state.playersCompared && (
-                                <div className="field">
-                                    <ul>
-                                        <li>Rating: {this.state.playerOne.rating}</li>
-                                        <li>KDR: {this.state.playerOne.kdr}</li>
-                                        <li>Total kills: {this.state.playerOne.total_kills}</li>
-                                        <li>Total wins: {this.state.playerOne.total_wins}</li>
-                                        <li>Win ratio: {this.state.playerOne.win_ratio}</li>
-                                    </ul>
-                                </div>
-                            )}
-                        </form>
+                    <div className="hero">
+                        <h1 className="title">Enter your players!</h1>
                     </div>
 
-                    <div className="column is-4">
-                        <div className="fight">
-                            <button onClick={(e) => this.getPlayersData(e)} className="button is-large is-danger">FIGHT</button>
+                    <div className="columns">
+
+                        <div className="column is-4">
+                            <form>
+                                <div className="field">
+                                    <img src="https://i.pinimg.com/originals/5b/bb/60/5bbb605bbecbd9a614b1456fe6f2f69b.png" alt="" />
+                                    <label className="label">Epic Games Username</label>
+                                    <div className="control">
+                                        <input id="playerOneName" className="input" type="text" />
+                                    </div>
+                                </div>
+
+                                <div className="control">
+                                    <label className="label">Platform</label>
+                                    <div className="select">
+                                        <select id="playerOnePlatform">
+                                            <option value="psn">PS4</option>
+                                            <option value="xb1">Xbox One</option>
+                                            <option value="pc">PC</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {this.state.playersCompared && (
+                                    <div className="field">
+                                        <ul>
+                                            <li>Rating: {this.state.playerOne.rating}</li>
+                                            <li>KDR: {this.state.playerOne.kdr}</li>
+                                            <li>Total kills: {this.state.playerOne.total_kills}</li>
+                                            <li>Total wins: {this.state.playerOne.total_wins}</li>
+                                            <li>Win ratio: {this.state.playerOne.win_ratio}</li>
+                                        </ul>
+                                    </div>
+                                )}
+                            </form>
                         </div>
-                    </div>
 
-                    <div className="column is-4">
-
-                        <form>
-                            <div className="field">
-                                <label className="label">Epic Games Username</label>
-                                <div className="control">
-                                    <input id="playerTwoName" className="input" type="text" />
-                                </div>
+                        <div className="column fightButtonColumn is-4">
+                            <div className="fight">
+                                <button onClick={(e) => this.getPlayersData(e)} className="button is-large is-danger">FIGHT</button>
                             </div>
+                        </div>
 
-                            <div className="control">
-                                <label className="label">Platform</label>
-                                <div className="select">
-                                    <select id="playerTwoPlatform">
-                                        <option value="psn">PS4</option>
-                                        <option value="xb1">Xbox One</option>
-                                        <option value="pc">PC</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div className="column is-4">
 
-
-                            {this.state.playersCompared && (
+                            <form>
                                 <div className="field">
-                                    <ul>
-                                        <li>Rating: {this.state.playerTwo.rating}</li>
-                                        <li>KDR: {this.state.playerTwo.kdr}</li>
-                                        <li>Total kills: {this.state.playerTwo.total_kills}</li>
-                                        <li>Total wins: {this.state.playerTwo.total_wins}</li>
-                                        <li>Win ratio: {this.state.playerTwo.win_ratio}</li>
-                                    </ul>
+                                    <img src="https://image.fnbr.co/outfit/5b335625bbe87a7e3f6aac35/icon.png" alt="" />
+                                    <label className="label">Epic Games Username</label>
+                                    <div className="control">
+                                        <input id="playerTwoName" className="input" type="text" />
+                                    </div>
                                 </div>
-                            )}
 
-                        </form>
+                                <div className="control">
+                                    <label className="label">Platform</label>
+                                    <div className="select">
+                                        <select id="playerTwoPlatform">
+                                            <option value="psn">PS4</option>
+                                            <option value="xb1">Xbox One</option>
+                                            <option value="pc">PC</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                {this.state.playersCompared && (
+                                    <div className="field">
+                                        <ul>
+                                            <li>Rating: {this.state.playerTwo.rating}</li>
+                                            <li>KDR: {this.state.playerTwo.kdr}</li>
+                                            <li>Total kills: {this.state.playerTwo.total_kills}</li>
+                                            <li>Total wins: {this.state.playerTwo.total_wins}</li>
+                                            <li>Win ratio: {this.state.playerTwo.win_ratio}</li>
+                                        </ul>
+                                    </div>
+                                )}
+
+                            </form>
+
+                        </div>
+
+
+
 
                     </div>
-
-
-
-
-                </div>
-                <div className="columns">
-                    <div className="column is-4 is-offset-4">
-                        {this.state.playersCompared && (
-                            <h1>{this.state.winner} wins!</h1>
-                        )}
+                    <div className="columns">
+                        <div className="column is-4 is-offset-4">
+                            {this.state.playersCompared && (
+                                <h1 className="winner">{this.state.winner} wins!</h1>
+                            )}
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

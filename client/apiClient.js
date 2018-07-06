@@ -39,3 +39,11 @@ export function getPlayerData(name, platform) {
         })
 
 }
+
+export function getLeaderboards() {
+    return request
+        .get('/api/v1')
+        .then(res => {
+            return res.body
+        })
+}

@@ -1,13 +1,25 @@
 import React from 'react'
-import db from '../../server/db'
+
+import { getLeaderboards } from '../apiClient'
 
 class Leaderboards extends React.Component {
     // REQUIRED:
     constructor(props) {
         super(props)
 
+        this.state = {
+            players: []
+        }
     }
 
+    componentDidMount() {
+        getLeaderboards()
+            .then(players => {
+                this.setState({
+                    players
+                })
+            })
+    }
 
     render() {
         return (
@@ -26,20 +38,21 @@ class Leaderboards extends React.Component {
                         </tr>
 
                         {
-                            db.getLeaderboards()
-                                .then(players => {
-                                    players.map((player, i) => {
-                                        <tr>
-                                            <td>{i + 1}</td>
-                                            <td>{player.username}</td>
-                                            <td>{player.rating}</td>
-                                            <td>{player.kdr}</td>
-                                            <td>{player.total_kills}</td>
-                                            <td>{player.win_ratio}</td>
-                                            <td>{player.total_wins}</td>
-                                        </tr>
+                            this.state.players.map((player, i) => {
+
+                                        return (
+                                            <tr>
+                                                <td>{i + 1}</td>
+                                                <td>{player.username}</td>
+                                                <td>{player.rating}</td>
+                                                <td>{player.kdr}</td>
+                                                <td>{player.total_kills}</td>
+                                                <td>{player.win_ratio}</td>
+                                                <td>{player.total_wins}</td>
+                                            </tr>
+                                        )
                                     })
-                                })
+                                
                         }
 
 

@@ -6,8 +6,7 @@ import React from 'react'
 // import { getPlayersData } from '../apiClient'
 
 // Components
-import Players from './Players'
-import Leaderboards from './Leaderboards'
+import Home from './Home'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,11 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Players />
-        <Leaderboards />
-      </div>
-
+      <Home />
     )
   }
 }
