@@ -22,7 +22,7 @@
     ]
   },
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "4.16.3",
     "heroku": "^7.5.11",
     "knex": "^0.15.0",
     "react-scroll-to-component": "^1.0.2",
