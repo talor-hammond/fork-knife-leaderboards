@@ -7,28 +7,15 @@ const db = require('knex')(config)
 
 function getLeaderboards() {
     return db('leaderboards')
-        .orderBy('rating', 'ASC')
+        .orderBy('rating', 'DESC')
 }
 
-function insertPlayer(id, username, winRatio, totalWins, kdr, totalKills, rating) {
-    const newPlayer = {
-        id,
-        username,
-        'win_ratio': winRatio,
-        'total_wins': totalWins,
-        kdr,
-        'total_kills': totalKills,
-        rating
-    }
+function insertPlayer(player) {
 
     return db('leaderboards')
-        .insert(newPlayer)
-        .then(returnValue => {
-            returnValue
-        })
+        .insert(player)
+        
 }
-
-getLeaderboards()
 
 module.exports = {
     getLeaderboards,

@@ -15,8 +15,6 @@ server.use('/api/v1', databaseRoute)
 
 server.get('/v1/profile/:platform/:name', (req,res) => {
     const {platform, name} = req.params
-    console.log(platform)
-    console.log(name)
     // import request from 'superagent'
 // headers, get
 
@@ -29,7 +27,6 @@ server.get('/v1/profile/:platform/:name', (req,res) => {
         .get(url + `${platform}/${name}`)
         .set(trnKey, trnKeyValue)
         .then(apiRes => {
-            console.log(apiRes)
             res.json(apiRes.body)
         })
 

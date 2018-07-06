@@ -1,5 +1,6 @@
 import React from 'react'
-import { getPlayerData } from '../apiClient'
+import { getPlayerData, insertPlayer } from '../apiClient'
+
 
 class Players extends React.Component {
     constructor(props) {
@@ -25,11 +26,18 @@ class Players extends React.Component {
         const playerTwoName = document.getElementById('playerTwoName').value
         const playerTwoPlatform = document.getElementById('playerTwoPlatform').value
 
-        console.log(playerOnePlatform)
+        // console.log(playerOnePlatform)
 
         Promise.all([getPlayerData(playerOneName, playerOnePlatform), getPlayerData(playerTwoName, playerTwoPlatform)])
             .then(returns => {
                 const [playerOne, playerTwo] = returns
+
+                // inserting one player:
+                insertPlayer(playerOne)
+                    .then((res) => {
+                        console.log(res)
+                        this.props.refreshLeaderboards()
+                    })
 
                 this.setState({
                     playerOne,
@@ -42,23 +50,23 @@ class Players extends React.Component {
     }
 
     comparePlayers() {
-        console.log(this.state.playerOne.rating)
+        // console.log(this.state.playerOne.rating)
 
         if (this.state.playerOne.rating > this.state.playerTwo.rating) {
             this.setState({
                 playersCompared: true,
                 winner: this.state.playerOne.username
             }, () => {
-                console.log(this.state.winner)
-                console.log(this.state.playersCompared)
+                // console.log(this.state.winner)
+                // console.log(this.state.playersCompared)
             })
         } else {
             this.setState({
                 playersCompared: true,
                 winner: this.state.playerTwo.username
             }, () => {
-                console.log(this.state.winner)
-                console.log(this.state.playersCompared)
+                // console.log(this.state.winner)
+                // console.log(this.state.playersCompared)
             })
         }
     }

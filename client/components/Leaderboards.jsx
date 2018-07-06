@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { getLeaderboards } from '../apiClient'
 
 class Leaderboards extends React.Component {
     // REQUIRED:
@@ -8,18 +7,10 @@ class Leaderboards extends React.Component {
         super(props)
 
         this.state = {
-            players: []
+            players: this.props.players
         }
     }
 
-    componentDidMount() {
-        getLeaderboards()
-            .then(players => {
-                this.setState({
-                    players
-                })
-            })
-    }
 
     render() {
         return (
@@ -38,7 +29,7 @@ class Leaderboards extends React.Component {
                         </tr>
 
                         {
-                            this.state.players.map((player, i) => {
+                            this.props.players.map((player, i) => {
 
                                         return (
                                             <tr>

@@ -40,6 +40,25 @@ export function getPlayerData(name, platform) {
 
 }
 
+
+// DATABASE
+export function insertPlayer(player) {
+
+    console.log(player)
+
+    return request
+        .post('/api/v1')
+        .send(player)
+        .then(res => {
+            console.log('------------------------------------')
+            console.log('Response from post: ', res)
+            console.log('------------------------------------')
+        })
+
+}
+
+
+
 export function getLeaderboards() {
     return request
         .get('/api/v1')

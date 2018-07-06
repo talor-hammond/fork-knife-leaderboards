@@ -911,6 +911,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.getPlayerData = getPlayerData;
+exports.insertPlayer = insertPlayer;
 exports.getLeaderboards = getLeaderboards;
 // import request from 'superagent'
 var request = __webpack_require__(31);
@@ -949,6 +950,18 @@ function getPlayerData(name, platform) {
             rating: 0.5 * Number(kdr) + 0.5 * Number(totalWins)
         };
         return player;
+    });
+}
+
+// DATABASE
+function insertPlayer(player) {
+
+    console.log(player);
+
+    return request.post('/api/v1').send(player).then(function (res) {
+        console.log('------------------------------------');
+        console.log('Response from post: ', res);
+        console.log('------------------------------------');
     });
 }
 
@@ -20579,6 +20592,8 @@ var _Leaderboards = __webpack_require__(37);
 
 var _Leaderboards2 = _interopRequireDefault(_Leaderboards);
 
+var _apiClient = __webpack_require__(13);
+
 var _reactScrollToComponent = __webpack_require__(38);
 
 var _reactScrollToComponent2 = _interopRequireDefault(_reactScrollToComponent);
@@ -20599,11 +20614,32 @@ var Home = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
+        _this.state = {
+            players: []
+        };
+
+        _this.refreshLeaderboards = _this.refreshLeaderboards.bind(_this);
         _this.handleClick = _this.handleClick.bind(_this);
         return _this;
     }
 
     _createClass(Home, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.refreshLeaderboards();
+        }
+    }, {
+        key: 'refreshLeaderboards',
+        value: function refreshLeaderboards() {
+            var _this2 = this;
+
+            (0, _apiClient.getLeaderboards)().then(function (players) {
+                _this2.setState({
+                    players: players
+                });
+            });
+        }
+    }, {
         key: 'handleClick',
         value: function handleClick() {
             (0, _reactScrollToComponent2.default)(this.refs.appledude, {
@@ -20614,7 +20650,7 @@ var Home = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             return _react2.default.createElement(
                 _react2.default.Fragment,
@@ -20649,7 +20685,7 @@ var Home = function (_React$Component) {
                                 _react2.default.createElement(
                                     'button',
                                     { onClick: function onClick() {
-                                            return _this2.handleClick();
+                                            return _this3.handleClick();
                                         }, className: 'button is-danger' },
                                     'Compare players'
                                 )
@@ -20663,9 +20699,9 @@ var Home = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'container', ref: 'appledude' },
-                        _react2.default.createElement(_Players2.default, null),
+                        _react2.default.createElement(_Players2.default, { refreshLeaderboards: this.refreshLeaderboards() }),
                         _react2.default.createElement('hr', null),
-                        _react2.default.createElement(_Leaderboards2.default, null)
+                        _react2.default.createElement(_Leaderboards2.default, { players: this.state.players })
                     )
                 )
             );
@@ -20738,12 +20774,20 @@ var Players = function (_React$Component) {
             var playerTwoName = document.getElementById('playerTwoName').value;
             var playerTwoPlatform = document.getElementById('playerTwoPlatform').value;
 
-            console.log(playerOnePlatform);
+            // console.log(playerOnePlatform)
 
             Promise.all([(0, _apiClient.getPlayerData)(playerOneName, playerOnePlatform), (0, _apiClient.getPlayerData)(playerTwoName, playerTwoPlatform)]).then(function (returns) {
                 var _returns = _slicedToArray(returns, 2),
                     playerOne = _returns[0],
                     playerTwo = _returns[1];
+
+                // inserting one player:
+
+
+                (0, _apiClient.insertPlayer)(playerOne).then(function (res) {
+                    console.log(res);
+                    _this2.props.refreshLeaderboards();
+                });
 
                 _this2.setState({
                     playerOne: playerOne,
@@ -20756,32 +20800,30 @@ var Players = function (_React$Component) {
     }, {
         key: 'comparePlayers',
         value: function comparePlayers() {
-            var _this3 = this;
-
-            console.log(this.state.playerOne.rating);
+            // console.log(this.state.playerOne.rating)
 
             if (this.state.playerOne.rating > this.state.playerTwo.rating) {
                 this.setState({
                     playersCompared: true,
                     winner: this.state.playerOne.username
                 }, function () {
-                    console.log(_this3.state.winner);
-                    console.log(_this3.state.playersCompared);
+                    // console.log(this.state.winner)
+                    // console.log(this.state.playersCompared)
                 });
             } else {
                 this.setState({
                     playersCompared: true,
                     winner: this.state.playerTwo.username
                 }, function () {
-                    console.log(_this3.state.winner);
-                    console.log(_this3.state.playersCompared);
+                    // console.log(this.state.winner)
+                    // console.log(this.state.playersCompared)
                 });
             }
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this4 = this;
+            var _this3 = this;
 
             return _react2.default.createElement(
                 _react2.default.Fragment,
@@ -20903,7 +20945,7 @@ var Players = function (_React$Component) {
                                 _react2.default.createElement(
                                     'button',
                                     { onClick: function onClick(e) {
-                                            return _this4.getPlayersData(e);
+                                            return _this3.getPlayersData(e);
                                         }, className: 'button is-large is-danger' },
                                     'FIGHT'
                                 )
@@ -23091,8 +23133,6 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _apiClient = __webpack_require__(13);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23111,143 +23151,132 @@ var Leaderboards = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Leaderboards.__proto__ || Object.getPrototypeOf(Leaderboards)).call(this, props));
 
         _this.state = {
-            players: []
+            players: _this.props.players
         };
         return _this;
     }
 
     _createClass(Leaderboards, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            (0, _apiClient.getLeaderboards)().then(function (players) {
-                _this2.setState({
-                    players: players
-                });
-            });
-        }
-    }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
                 _react2.default.Fragment,
                 null,
                 _react2.default.createElement(
-                    'h1',
-                    { className: 'leaderboardsTitle' },
-                    'Leaderboards'
+                    "h1",
+                    { className: "leaderboardsTitle" },
+                    "Leaderboards"
                 ),
                 _react2.default.createElement(
-                    'table',
+                    "table",
                     null,
                     _react2.default.createElement(
-                        'tbody',
+                        "tbody",
                         null,
                         _react2.default.createElement(
-                            'tr',
+                            "tr",
                             null,
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'Rank'
+                                    "span",
+                                    { className: "color" },
+                                    "Rank"
                                 )
                             ),
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'Username'
+                                    "span",
+                                    { className: "color" },
+                                    "Username"
                                 )
                             ),
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'Rating'
+                                    "span",
+                                    { className: "color" },
+                                    "Rating"
                                 )
                             ),
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'KDR'
+                                    "span",
+                                    { className: "color" },
+                                    "KDR"
                                 )
                             ),
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'Kills'
+                                    "span",
+                                    { className: "color" },
+                                    "Kills"
                                 )
                             ),
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'WR'
+                                    "span",
+                                    { className: "color" },
+                                    "WR"
                                 )
                             ),
                             _react2.default.createElement(
-                                'th',
+                                "th",
                                 null,
                                 _react2.default.createElement(
-                                    'span',
-                                    { className: 'color' },
-                                    'Wins'
+                                    "span",
+                                    { className: "color" },
+                                    "Wins"
                                 )
                             )
                         ),
-                        this.state.players.map(function (player, i) {
+                        this.props.players.map(function (player, i) {
 
                             return _react2.default.createElement(
-                                'tr',
+                                "tr",
                                 null,
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     i + 1
                                 ),
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     player.username
                                 ),
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     player.rating
                                 ),
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     player.kdr
                                 ),
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     player.total_kills
                                 ),
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     player.win_ratio
                                 ),
                                 _react2.default.createElement(
-                                    'td',
+                                    "td",
                                     null,
                                     player.total_wins
                                 )

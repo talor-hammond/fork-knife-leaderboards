@@ -3,13 +3,33 @@ import React from 'react'
 import Players from './Players'
 import Leaderboards from './Leaderboards'
 
+import { getLeaderboards } from '../apiClient'
+
 import scrollToComponent from 'react-scroll-to-component'
 
 class Home extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            players: []
+        }
+
+        this.refreshLeaderboards = this.refreshLeaderboards.bind(this)
         this.handleClick = this.handleClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.refreshLeaderboards()
+    }   
+
+    refreshLeaderboards() {
+        getLeaderboards()
+        .then(players => {
+            this.setState({
+                players
+            })
+        })
     }
 
     handleClick() {
@@ -39,9 +59,9 @@ class Home extends React.Component {
 
                 <div class="hero is-fullheight is-dark is-bold">
                     <div className="container" ref="appledude">
-                        <Players />
-                        <hr/>
-                        <Leaderboards />
+                        <Players refreshLeaderboards={this.refreshLeaderboards()}/>
+                        <hr />
+                        <Leaderboards players={this.state.players} />
                     </div>
                 </div>
 
