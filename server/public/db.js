@@ -2,7 +2,7 @@
 
 // setting up the database:
 const environment = 'development'
-const config = require('./knexfile')[environment]
+const config = require('../knexfile')[environment]
 const db = require('knex')(config)
 
 function getLeaderboards() {
@@ -29,4 +29,11 @@ function insertPlayer(id, username, winRatio, totalWins, kdr, totalKills, rating
         .then(returnValue => {
             returnValue
         })
+}
+
+getLeaderboards()
+
+module.exports = {
+    getLeaderboards,
+    insertPlayer
 }
