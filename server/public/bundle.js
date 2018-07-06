@@ -19732,7 +19732,7 @@ var Home = function (_React$Component) {
     _createClass(Home, [{
         key: 'handleClick',
         value: function handleClick() {
-            (0, _reactScrollToComponent2.default)(this.refs.theOne, {
+            (0, _reactScrollToComponent2.default)(this.refs.appledude, {
                 align: 'top',
                 duration: 1500
             });
@@ -19788,7 +19788,7 @@ var Home = function (_React$Component) {
                     { 'class': 'hero is-fullheight is-dark is-bold' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'container', ref: 'theOne' },
+                        { className: 'container', ref: 'appledude' },
                         _react2.default.createElement(_Players2.default, null),
                         _react2.default.createElement('hr', null),
                         _react2.default.createElement(_Leaderboards2.default, null)

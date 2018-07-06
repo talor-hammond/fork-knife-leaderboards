@@ -13,7 +13,7 @@ class Home extends React.Component {
     }
 
     handleClick() {
-        scrollToComponent(this.refs.theOne, {
+        scrollToComponent(this.refs.appledude, {
             align: 'top',
             duration: 1500
         })
@@ -38,7 +38,7 @@ class Home extends React.Component {
                 </div>
 
                 <div class="hero is-fullheight is-dark is-bold">
-                    <div className="container" ref="theOne">
+                    <div className="container" ref="appledude">
                         <Players />
                         <hr/>
                         <Leaderboards />
