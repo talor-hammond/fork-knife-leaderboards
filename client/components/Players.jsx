@@ -161,7 +161,7 @@ class Players extends React.Component {
                     <div className="columns">
                         <div className="column is-4 is-offset-4">
                             {this.state.playersCompared && (
-                                <h1 className="winner">{this.state.winner} wins!</h1>
+                                <h1 className="winner"><strong>{this.state.winner}</strong> wins!</h1>
                             )}
                         </div>
                     </div>

@@ -19790,6 +19790,7 @@ var Home = function (_React$Component) {
                         'div',
                         { className: 'container', ref: 'theOne' },
                         _react2.default.createElement(_Players2.default, null),
+                        _react2.default.createElement('hr', null),
                         _react2.default.createElement(_Leaderboards2.default, null)
                     )
                 )
@@ -20137,7 +20138,11 @@ var Players = function (_React$Component) {
                             this.state.playersCompared && _react2.default.createElement(
                                 'h1',
                                 { className: 'winner' },
-                                this.state.winner,
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    this.state.winner
+                                ),
                                 ' wins!'
                             )
                         )
@@ -22256,7 +22261,7 @@ var Leaderboards = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'h1',
-                    null,
+                    { className: 'leaderboardsTitle' },
                     'Leaderboards'
                 ),
                 _react2.default.createElement(
@@ -22271,37 +22276,65 @@ var Leaderboards = function (_React$Component) {
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'Rank'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'Rank'
+                                )
                             ),
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'Username'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'Username'
+                                )
                             ),
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'Rating'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'Rating'
+                                )
                             ),
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'KDR'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'KDR'
+                                )
                             ),
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'Kills'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'Kills'
+                                )
                             ),
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'WR'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'WR'
+                                )
                             ),
                             _react2.default.createElement(
                                 'th',
                                 null,
-                                'Wins'
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'color' },
+                                    'Wins'
+                                )
                             )
                         ),
                         this.state.players.map(function (player, i) {

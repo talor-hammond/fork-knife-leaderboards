@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon server & yarn build --watch",
     "build": "webpack --config client/webpack.config.js",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "webpack && knex migrate:latest"
   },
   "babel": {
     "presets": [
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "heroku": "^7.5.11",
     "knex": "^0.15.0",
     "react-scroll-to-component": "^1.0.2",
     "sqlite3": "^4.0.1"

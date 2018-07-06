@@ -1,11 +1,9 @@
 // File for writing functions related to db queries; returning / doing what we want:
 
 // setting up the database:
-const environment = 'development'
+const environment = process.env.NODE_ENV || 'development'
 const config = require('../knexfile')[environment]
 const db = require('knex')(config)
-
-console.log(config)
 
 function getLeaderboards() {
     return db('leaderboards')

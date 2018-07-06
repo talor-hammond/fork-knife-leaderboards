@@ -40,6 +40,7 @@ class Home extends React.Component {
                 <div class="hero is-fullheight is-dark is-bold">
                     <div className="container" ref="theOne">
                         <Players />
+                        <hr/>
                         <Leaderboards />
                     </div>
                 </div>

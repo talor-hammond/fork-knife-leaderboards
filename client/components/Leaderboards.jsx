@@ -24,17 +24,17 @@ class Leaderboards extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Leaderboards</h1>
+                <h1 className="leaderboardsTitle">Leaderboards</h1>
                 <table>
                     <tbody>
                         <tr>
-                            <th>Rank</th>
-                            <th>Username</th>
-                            <th>Rating</th>
-                            <th>KDR</th>
-                            <th>Kills</th>
-                            <th>WR</th>
-                            <th>Wins</th>
+                            <th><span className="color">Rank</span></th>
+                            <th><span className="color">Username</span></th>
+                            <th><span className="color">Rating</span></th>
+                            <th><span className="color">KDR</span></th>
+                            <th><span className="color">Kills</span></th>
+                            <th><span className="color">WR</span></th>
+                            <th><span className="color">Wins</span></th>
                         </tr>
 
                         {
