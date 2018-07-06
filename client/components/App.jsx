@@ -3,7 +3,7 @@ import React from 'react'
 // importing superagent
 // import request from 'superagent'
  
-import { getPlayersData } from '../apiClient'
+// import { getPlayersData } from '../apiClient'
  
 // Components
 import Players from './Players'
@@ -17,11 +17,10 @@ class App extends React.Component {
       playerTwo: {}
     }
   }
- 
+
   render() {
     return (
       <div>
-        <h1>Hello people</h1>
         <Players />
         {/* <Leaderboards /> */}
       </div>

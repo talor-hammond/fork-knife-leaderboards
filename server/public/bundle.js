@@ -258,6 +258,21 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(14);
+} else {
+  module.exports = __webpack_require__(15);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -314,7 +329,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -354,21 +369,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
-} else {
-  module.exports = __webpack_require__(15);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 4 */
@@ -506,7 +506,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -575,7 +575,7 @@ module.exports = warning;
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(1);
+  var invariant = __webpack_require__(2);
   var warning = __webpack_require__(6);
   var ReactPropTypesSecret = __webpack_require__(16);
   var loggedTypeFailures = {};
@@ -851,7 +851,7 @@ module.exports = isObject;
 "use strict";
 
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -883,7 +883,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(4),n=__webpack_require__(1),p=__webpack_require__(5),q=__webpack_require__(2),r="function"===typeof Symbol&&Symbol["for"],t=r?Symbol["for"]("react.element"):60103,u=r?Symbol["for"]("react.portal"):60106,v=r?Symbol["for"]("react.fragment"):60107,w=r?Symbol["for"]("react.strict_mode"):60108,x=r?Symbol["for"]("react.provider"):60109,y=r?Symbol["for"]("react.context"):60110,z=r?Symbol["for"]("react.async_mode"):60111,A=r?Symbol["for"]("react.forward_ref"):
+var m=__webpack_require__(4),n=__webpack_require__(2),p=__webpack_require__(5),q=__webpack_require__(3),r="function"===typeof Symbol&&Symbol["for"],t=r?Symbol["for"]("react.element"):60103,u=r?Symbol["for"]("react.portal"):60106,v=r?Symbol["for"]("react.fragment"):60107,w=r?Symbol["for"]("react.strict_mode"):60108,x=r?Symbol["for"]("react.provider"):60109,y=r?Symbol["for"]("react.context"):60110,z=r?Symbol["for"]("react.async_mode"):60111,A=r?Symbol["for"]("react.forward_ref"):
 60112,B="function"===typeof Symbol&&Symbol.iterator;function C(a){for(var b=arguments.length-1,e="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);n(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",e)}var D={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};
 function E(a,b,e){this.props=a;this.context=b;this.refs=p;this.updater=e||D}E.prototype.isReactComponent={};E.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?C("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};E.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};function F(){}F.prototype=E.prototype;function G(a,b,e){this.props=a;this.context=b;this.refs=p;this.updater=e||D}var H=G.prototype=new F;
 H.constructor=G;m(H,E.prototype);H.isPureReactComponent=!0;var I={current:null},J=Object.prototype.hasOwnProperty,K={key:!0,ref:!0,__self:!0,__source:!0};
@@ -921,10 +921,10 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var _assign = __webpack_require__(4);
-var invariant = __webpack_require__(1);
+var invariant = __webpack_require__(2);
 var emptyObject = __webpack_require__(5);
 var warning = __webpack_require__(6);
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 var checkPropTypes = __webpack_require__(7);
 
 // TODO: this is special because it gets imported during build.
@@ -2402,7 +2402,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var ba=__webpack_require__(1),ea=__webpack_require__(3),m=__webpack_require__(8),A=__webpack_require__(4),C=__webpack_require__(2),fa=__webpack_require__(9),ha=__webpack_require__(10),ja=__webpack_require__(11),ka=__webpack_require__(5);
+var ba=__webpack_require__(2),ea=__webpack_require__(1),m=__webpack_require__(8),A=__webpack_require__(4),C=__webpack_require__(3),fa=__webpack_require__(9),ha=__webpack_require__(10),ja=__webpack_require__(11),ka=__webpack_require__(5);
 function D(a){for(var b=arguments.length-1,c="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);ba(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}ea?void 0:D("227");
 function ma(a,b,c,d,e,f,h,g,k){this._hasCaughtError=!1;this._caughtError=null;var v=Array.prototype.slice.call(arguments,3);try{b.apply(c,v)}catch(l){this._caughtError=l,this._hasCaughtError=!0}}
 var E={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,h,g,k){ma.apply(E,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,h,g,k){E.invokeGuardedCallback.apply(this,arguments);if(E.hasCaughtError()){var v=E.clearCaughtError();E._hasRethrowError||(E._hasRethrowError=!0,E._rethrowError=v)}},rethrowCaughtError:function(){return na.apply(E,arguments)},hasCaughtError:function(){return E._hasCaughtError},clearCaughtError:function(){if(E._hasCaughtError){var a=
@@ -2716,12 +2716,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var invariant = __webpack_require__(1);
-var React = __webpack_require__(3);
+var invariant = __webpack_require__(2);
+var React = __webpack_require__(1);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(8);
 var _assign = __webpack_require__(4);
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 var checkPropTypes = __webpack_require__(7);
 var getActiveElement = __webpack_require__(9);
 var shallowEqual = __webpack_require__(10);
@@ -19525,13 +19525,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _apiClient = __webpack_require__(27);
-
-var _Players = __webpack_require__(34);
+var _Players = __webpack_require__(27);
 
 var _Players2 = _interopRequireDefault(_Players);
 
@@ -19545,6 +19543,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // importing superagent
 // import request from 'superagent'
+
+// import { getPlayersData } from '../apiClient'
 
 // Components
 
@@ -19572,11 +19572,6 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Hello people'
-        ),
         _react2.default.createElement(_Players2.default, null)
       );
     }
@@ -19594,12 +19589,352 @@ exports.default = App;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _apiClient = __webpack_require__(28);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Players = function (_React$Component) {
+    _inherits(Players, _React$Component);
+
+    function Players(props) {
+        _classCallCheck(this, Players);
+
+        var _this = _possibleConstructorReturn(this, (Players.__proto__ || Object.getPrototypeOf(Players)).call(this, props));
+
+        _this.state = {
+            playerOne: {},
+            playerTwo: {},
+            playersCompared: false,
+            winner: ''
+        };
+
+        _this.getPlayersData = _this.getPlayersData.bind(_this);
+        _this.comparePlayers = _this.comparePlayers.bind(_this);
+        return _this;
+    }
+
+    _createClass(Players, [{
+        key: 'getPlayersData',
+        value: function getPlayersData(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+
+            var playerOneName = document.getElementById('playerOneName').value;
+            var playerOnePlatform = document.getElementById('playerOnePlatform').value;
+            var playerTwoName = document.getElementById('playerTwoName').value;
+            var playerTwoPlatform = document.getElementById('playerTwoPlatform').value;
+
+            console.log(playerOnePlatform);
+
+            Promise.all([(0, _apiClient.getPlayerData)(playerOneName, playerOnePlatform), (0, _apiClient.getPlayerData)(playerTwoName, playerTwoPlatform)]).then(function (returns) {
+                var _returns = _slicedToArray(returns, 2),
+                    playerOne = _returns[0],
+                    playerTwo = _returns[1];
+
+                _this2.setState({
+                    playerOne: playerOne,
+                    playerTwo: playerTwo
+                }, function () {
+                    _this2.comparePlayers();
+                });
+            });
+        }
+    }, {
+        key: 'comparePlayers',
+        value: function comparePlayers() {
+            var _this3 = this;
+
+            console.log(this.state.playerOne.rating);
+
+            if (this.state.playerOne.rating > this.state.playerTwo.rating) {
+                this.setState({
+                    playersCompared: true,
+                    winner: this.state.playerOne.username
+                }, function () {
+                    console.log(_this3.state.winner);
+                    console.log(_this3.state.playersCompared);
+                });
+            } else {
+                this.setState({
+                    playersCompared: true,
+                    winner: this.state.playerTwo.username
+                }, function () {
+                    console.log(_this3.state.winner);
+                    console.log(_this3.state.playersCompared);
+                });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this4 = this;
+
+            return _react2.default.createElement(
+                _react2.default.Fragment,
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'columns' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'column is-4' },
+                        _react2.default.createElement(
+                            'form',
+                            null,
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'field' },
+                                _react2.default.createElement(
+                                    'label',
+                                    { className: 'label' },
+                                    'Epic Games Username'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'control' },
+                                    _react2.default.createElement('input', { id: 'playerOneName', className: 'input', type: 'text' })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'control' },
+                                _react2.default.createElement(
+                                    'label',
+                                    { className: 'label' },
+                                    'Platform'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'select' },
+                                    _react2.default.createElement(
+                                        'select',
+                                        { id: 'playerOnePlatform' },
+                                        _react2.default.createElement(
+                                            'option',
+                                            { value: 'psn' },
+                                            'PS4'
+                                        ),
+                                        _react2.default.createElement(
+                                            'option',
+                                            { value: 'xb1' },
+                                            'Xbox One'
+                                        ),
+                                        _react2.default.createElement(
+                                            'option',
+                                            { value: 'pc' },
+                                            'PC'
+                                        )
+                                    )
+                                )
+                            ),
+                            this.state.playersCompared && _react2.default.createElement(
+                                'div',
+                                { className: 'field' },
+                                _react2.default.createElement(
+                                    'ul',
+                                    null,
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Rating: ',
+                                        this.state.playerOne.rating
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'KDR: ',
+                                        this.state.playerOne.kdr
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Total kills: ',
+                                        this.state.playerOne.total_kills
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Total wins: ',
+                                        this.state.playerOne.total_wins
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Win ratio: ',
+                                        this.state.playerOne.win_ratio
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'column is-4' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'fight' },
+                            _react2.default.createElement(
+                                'button',
+                                { onClick: function onClick(e) {
+                                        return _this4.getPlayersData(e);
+                                    }, className: 'button is-large is-danger' },
+                                'FIGHT'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'column is-4' },
+                        _react2.default.createElement(
+                            'form',
+                            null,
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'field' },
+                                _react2.default.createElement(
+                                    'label',
+                                    { className: 'label' },
+                                    'Epic Games Username'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'control' },
+                                    _react2.default.createElement('input', { id: 'playerTwoName', className: 'input', type: 'text' })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'control' },
+                                _react2.default.createElement(
+                                    'label',
+                                    { className: 'label' },
+                                    'Platform'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'select' },
+                                    _react2.default.createElement(
+                                        'select',
+                                        { id: 'playerTwoPlatform' },
+                                        _react2.default.createElement(
+                                            'option',
+                                            { value: 'psn' },
+                                            'PS4'
+                                        ),
+                                        _react2.default.createElement(
+                                            'option',
+                                            { value: 'xb1' },
+                                            'Xbox One'
+                                        ),
+                                        _react2.default.createElement(
+                                            'option',
+                                            { value: 'pc' },
+                                            'PC'
+                                        )
+                                    )
+                                )
+                            ),
+                            this.state.playersCompared && _react2.default.createElement(
+                                'div',
+                                { className: 'field' },
+                                _react2.default.createElement(
+                                    'ul',
+                                    null,
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Rating: ',
+                                        this.state.playerTwo.rating
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'KDR: ',
+                                        this.state.playerTwo.kdr
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Total kills: ',
+                                        this.state.playerTwo.total_kills
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Total wins: ',
+                                        this.state.playerTwo.total_wins
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        'Win ratio: ',
+                                        this.state.playerTwo.win_ratio
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'columns' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'column is-4 is-offset-4' },
+                        this.state.playersCompared && _react2.default.createElement(
+                            'h1',
+                            null,
+                            this.state.winner,
+                            ' wins!'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Players;
+}(_react2.default.Component);
+
+exports.default = Players;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getPlayerData = getPlayerData;
 // import request from 'superagent'
-var request = __webpack_require__(28);
+var request = __webpack_require__(29);
 // headers, get
-var url = 'https://api.fortnitetracker.com/v1/profile/';
-var trnKey = 'TRN-Api-Key';
-var trnKeyValue = '4b44201c-db0b-4bc7-b06f-5c6753877008';
+// const url = 'https://api.fortnitetracker.com/v1/profile/'
+var url = '/v1/profile/';
+// const trnKey = 'TRN-Api-Key'
+// const trnKeyValue = '4b44201c-db0b-4bc7-b06f-5c6753877008'
 
 // API GET https://api.fortnitetracker.com/v1/profile/{platform}/{epic-nickname}
 // Tay's API KEY TRN-Api-Key: 4b44201c-db0b-4bc7-b06f-5c6753877008
@@ -19608,7 +19943,9 @@ var trnKeyValue = '4b44201c-db0b-4bc7-b06f-5c6753877008';
 function getPlayerData(name, platform) {
 
     // player's data:
-    return request.get(url + (platform + '/' + name)).set(trnKey, trnKeyValue).then(function (res) {
+    return request.get(url + (platform + '/' + name))
+    // .set(trnKey, trnKeyValue)
+    .then(function (res) {
 
         // grabbing the results
         var id = res.body.accountId;
@@ -19627,13 +19964,12 @@ function getPlayerData(name, platform) {
             'total_kills': totalKills,
             rating: 0.5 * Number(kdr) + 0.5 * Number(totalWins)
         };
-
         return player;
     });
 }
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -19650,11 +19986,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(29);
-var RequestBase = __webpack_require__(30);
+var Emitter = __webpack_require__(30);
+var RequestBase = __webpack_require__(31);
 var isObject = __webpack_require__(12);
-var ResponseBase = __webpack_require__(31);
-var Agent = __webpack_require__(33);
+var ResponseBase = __webpack_require__(32);
+var Agent = __webpack_require__(34);
 
 /**
  * Noop.
@@ -20559,7 +20895,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -20728,7 +21064,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21429,7 +21765,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21439,7 +21775,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(32);
+var utils = __webpack_require__(33);
 
 /**
  * Expose `ResponseBase`.
@@ -21572,7 +21908,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21650,7 +21986,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 function Agent() {
@@ -21674,156 +22010,6 @@ Agent.prototype._setDefaults = function(req) {
 
 module.exports = Agent;
 
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Players = function (_React$Component) {
-    _inherits(Players, _React$Component);
-
-    function Players() {
-        _classCallCheck(this, Players);
-
-        return _possibleConstructorReturn(this, (Players.__proto__ || Object.getPrototypeOf(Players)).apply(this, arguments));
-    }
-
-    _createClass(Players, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                null,
-                _react2.default.createElement(
-                    "div",
-                    { className: "field" },
-                    _react2.default.createElement(
-                        "label",
-                        { className: "label" },
-                        "Epic Games Username"
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "control" },
-                        _react2.default.createElement("input", { className: "input", type: "text", placeholder: "e.g cheftay" })
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "control" },
-                    _react2.default.createElement(
-                        "label",
-                        { className: "label" },
-                        "Platform"
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "select" },
-                        _react2.default.createElement(
-                            "select",
-                            null,
-                            _react2.default.createElement(
-                                "option",
-                                null,
-                                "PlayStation"
-                            ),
-                            _react2.default.createElement(
-                                "option",
-                                null,
-                                "XBox"
-                            ),
-                            _react2.default.createElement(
-                                "option",
-                                null,
-                                "PC"
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "field" },
-                    _react2.default.createElement(
-                        "label",
-                        { className: "label" },
-                        "Epic Games Username"
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "control" },
-                        _react2.default.createElement("input", { className: "input", type: "text", placeholder: "e.g cheftay" })
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "control" },
-                    _react2.default.createElement(
-                        "label",
-                        { className: "label" },
-                        "Platform"
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "select" },
-                        _react2.default.createElement(
-                            "select",
-                            null,
-                            _react2.default.createElement(
-                                "option",
-                                null,
-                                "PlayStation"
-                            ),
-                            _react2.default.createElement(
-                                "option",
-                                null,
-                                "XBox"
-                            ),
-                            _react2.default.createElement(
-                                "option",
-                                null,
-                                "PC"
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "fight" },
-                    _react2.default.createElement(
-                        "a",
-                        { className: "button is-large is-danger" },
-                        "FIGHT"
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Players;
-}(_react2.default.Component);
-
-exports.default = Players;
 
 /***/ })
 /******/ ]);
