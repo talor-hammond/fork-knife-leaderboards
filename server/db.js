@@ -2,15 +2,12 @@
 
 // setting up the database:
 const environment = 'development'
-const config = require('./knexfile')[environment]
+const config = require('../knexfile')[environment]
 const db = require('knex')(config)
 
 function getLeaderboards() {
     return db('leaderboards')
-        .orderBy('rating', 'ASC')
-        .then(data => {
-            console.log(data)
-        })
+        .orderBy('rating', 'ASC')   
 }
 
 function insertPlayer(id, username, winRatio, totalWins, kdr, totalKills, rating) {
@@ -29,4 +26,9 @@ function insertPlayer(id, username, winRatio, totalWins, kdr, totalKills, rating
         .then(returnValue => {
             returnValue
         })
+}
+
+module.exports = {
+    getLeaderboards,
+    insertPlayer
 }

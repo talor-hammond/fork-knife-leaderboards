@@ -1,5 +1,5 @@
 Arguments: 
-  /home/student/.nvm/versions/node/v8.10.0/bin/node /usr/share/yarn/bin/yarn.js knex seed:run
+  /home/student/.nvm/versions/node/v8.10.0/bin/node /usr/share/yarn/bin/yarn.js knex migrate rollback
 
 PATH: 
   /home/student/.nvm/versions/node/v8.10.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
@@ -5933,7 +5933,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c /home/student/workspace/fork-knife-leaderboards/node_modules/.bin/knex seed:run
+  Arguments: -c /home/student/workspace/fork-knife-leaderboards/node_modules/.bin/knex migrate rollback
   Directory: /home/student/workspace/fork-knife-leaderboards
   Output:
   
