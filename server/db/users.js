@@ -1,12 +1,13 @@
 const environment = process.env.NODE_ENV || 'development'
 const config = require('../../knexfile')[environment]
 const db = require('knex')(config)
+const {generate} = require('../auth/hash')
 
 function createUser(username, password) {
     // creating a newuser object
     const newUser = {
         username,
-        hash: password
+        hash: generate(password)
     }
 
     return db('users')
@@ -24,7 +25,14 @@ function userExists(username) {
 
 }
 
+function getUserByName(username){
+    return db('users')
+        .where('username', username)
+        .first()
+}
+
 module.exports = {
     createUser,
-    userExists
+    userExists,
+    getUserByName,
 }

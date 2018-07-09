@@ -2,14 +2,15 @@ const express = require('express')
 const router = express.Router()
 const bodyParser = require('body-parser')
 const { userExists, createUser } = require('../db/users')
+const token = require('../auth/token')
 
 router.use(bodyParser.json());
 
-router.post('/register', register)
+router.post('/register', register, token.issue)
 
-function register (req, res /*, next*/) {
+function register (req, res, next) {
     const {username, password} = req.body
-    console.log("We are looking for: ", req.body)
+    
     userExists(username)
         .then( exists => {
             if (exists) {
@@ -17,7 +18,7 @@ function register (req, res /*, next*/) {
                 //problem was sendStatus not send
             } else { //is this redundant?
                 createUser(username, password)
-                .then(()=> res.sendStatus(201).end())
+                .then(()=> next())
                 //console.log("Created user successfully")
             }
         })
