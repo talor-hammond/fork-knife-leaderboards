@@ -1,14 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const db = require('../db')
+const leaderboards = require('../db/leaderboards')
 
 const router = express.Router()
 
 router.use(bodyParser.json())
 
 router.get('/', (req, res) => {
-  db.getLeaderboards()
+  leaderboards.getLeaderboards()
     .then(players => {
       res.json(players)
     })
@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 
   console.log('Post, req.body: ', player)
   
-  db.insertPlayer(player)
+  leaderboards.insertPlayer(player)
     .then(res => {
       console.log(res)
     })

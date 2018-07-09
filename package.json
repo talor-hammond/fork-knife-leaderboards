@@ -41,6 +41,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scroll-to-component": "^1.0.2",
+    "sodium": "^2.0.3",
     "sqlite3": "^4.0.1",
     "superagent": "^3.8.3",
     "webpack": "3"

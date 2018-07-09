@@ -2,7 +2,7 @@
 
 // setting up the database:
 const environment = process.env.NODE_ENV || 'development'
-const config = require('../knexfile')[environment]
+const config = require('../../knexfile')[environment]
 const db = require('knex')(config)
 
 function getLeaderboards() {
@@ -16,6 +16,8 @@ function insertPlayer(player) {
         .insert(player)
         
 }
+
+getLeaderboards()
 
 module.exports = {
     getLeaderboards,
