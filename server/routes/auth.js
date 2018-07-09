@@ -31,4 +31,12 @@ function register (req, res, next) {
     
 }
 
+//////////////////////////////
+
+router.get('/username', token.decode, (req, res) =>{
+    res.json({username: req.user.username})
+})
+
+//////////////////////////////
+
 module.exports = router
